@@ -16,7 +16,8 @@ PlayerCarSFML::PlayerCarSFML(sf::RenderWindow& w, std::shared_ptr<sf::Texture> t
     position.y = 300;
     accelerator = 3;
     maxSpeed = 10;
-
+    hardness.x = 0.5;
+    hardness.y = 0.5;
 }
 
 PlayerCarSFML::~PlayerCarSFML() {
@@ -41,3 +42,4 @@ std::vector<bool> PlayerCarSFML::getInput() {
     input.push_back(sf::Keyboard::isKeyPressed(sf::Keyboard::Space));
     return input;
 }
+

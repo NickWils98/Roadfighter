@@ -19,6 +19,7 @@ public:
 
     void update() override ;
 
+
     std::vector<bool> getInput();
 
 private:

@@ -17,6 +17,7 @@ public:
     virtual void render() = 0;
     virtual void update() = 0;
     virtual std::vector<bool> getInput() = 0;
+    virtual bool OnCollision(std::shared_ptr<Entity> other);
 
     void MovePlayer(float deltaTime, std::vector<bool> input);
 };

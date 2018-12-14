@@ -16,6 +16,7 @@ public:
 
     virtual void render() = 0;
     virtual void update() = 0;
+    virtual bool OnCollision(std::shared_ptr<Entity> other) = 0;
 };
 
 

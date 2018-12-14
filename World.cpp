@@ -36,3 +36,26 @@ void World::update() {
         obj->update();
     }
 }
+
+void World::Collision() {
+    if(!entityList.empty()) {
+        for (int i = 0; i < entityList.size() - 1; i++) {
+            for (int j = 0; j < entityList.size(); j++) {
+                if (i != j) {
+                    Collider col(entityList[i]);
+                    Collider col2(entityList[j]);
+                    if(col.CheckCollision(col2, 1.0f)){
+                        bool del = entityList[i]->OnCollision(entityList[j]);
+                        if(del){
+                            remove(entityList[j]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+bool World::OnCollision(std::shared_ptr<Entity> other) {
+    return false;
+}

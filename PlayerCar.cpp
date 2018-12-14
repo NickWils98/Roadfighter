@@ -40,7 +40,7 @@ void PlayerCar::MovePlayer(float deltaTime, std::vector<bool> input) {
             speed.x -= accelerator*deltaTime;
         }
         if(-maxSpeed>speed.x){
-            speed.x = -maxSpeed;
+                speed.x = -maxSpeed;
         }
     }
     if(input[1]){
@@ -84,5 +84,48 @@ void PlayerCar::MovePlayer(float deltaTime, std::vector<bool> input) {
     position.y += speed.y;
     //std::cout<<speed.x<<"     "<<speed.y<<"    "<<deltaTime<<std::endl;
 
+}
 
+bool PlayerCar::OnCollision(std::shared_ptr<Entity> other) {
+    coordinats direction = other->getHit();
+    coordinats& sp = other->getSpeed();
+    const coordinats hard = other->getHardness();
+    if(direction.x < 0.0f){
+        //Collision on the left.
+        speed.x = speed.x*hard.x;
+    } else if(direction.x > 0.0f){
+        //Collision on the right.
+        speed.x = speed.x*hard.x;
+    }
+    if(direction.y < 0.0f){
+        //Collision on the top.
+        float diff = speed.y+sp.y;
+        if(hardness.y<hard.y) {
+            speed.y = diff *(hard.y-hardness.y)/2;
+            sp.y = diff/2;
+        } else if(hardness.y> hard.y) {
+            sp.y = diff *(hardness.y-hard.y)/2;
+            speed.y = diff/2;
+        } else{
+            speed.y = diff /2;
+            sp.y = diff*0.9/2;
+        }
+
+
+
+    } else if(direction.y > 0.0f){
+        //Collision on the bottom.
+        float diff = speed.y+sp.y;
+        if(hardness.y>hard.y) {
+            speed.y = diff *(hard.y-hardness.y)/2;
+            sp.y = diff/2;
+        } else if(hardness.y< hard.y) {
+            sp.y = diff *(hardness.y-hard.y)/2;
+            speed.y = diff/2;
+        } else{
+            speed.y = diff *0.9/2;
+            sp.y = diff/2;
+        }
+    }
+    return false;
 }
