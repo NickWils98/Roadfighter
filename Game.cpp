@@ -23,6 +23,13 @@ void Game::run() {
     //Main loop of the game
     while (m_window.isOpen()) {
 
+        std::clock_t  beginRound = startTime;
+        startTime = std::clock();
+        deltaTime = startTime - beginRound;
+        if(deltaTime>1.0f/20.0f){
+            deltaTime= 1.0f/20.0f;
+        }
+        moveObjects();
         //Render
         m_window.clear();
         m_window.setView(view);
@@ -58,4 +65,10 @@ void Game::init() {
     textures.push_back(tex);
     player = std::make_shared<PlayerCarSFML>(m_window, tex);
     world->add(player);
+}
+
+void Game::moveObjects() {
+    std::vector<bool> input = player->getInput();
+    player->MovePlayer(deltaTime, input);
+    world->update();
 }

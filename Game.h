@@ -23,6 +23,8 @@ public:
 
     void init();
 
+    void moveObjects();
+
     void handleEvent();
 
 private:
@@ -30,6 +32,7 @@ private:
     std::shared_ptr<World> world;
     sf::View view;
     std::shared_ptr<PlayerCarSFML> player;
+    float deltaTime = 0;
     std::vector<std::shared_ptr<sf::Texture>> textures = {};
 };
 

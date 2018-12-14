@@ -14,6 +14,8 @@ PlayerCarSFML::PlayerCarSFML(sf::RenderWindow& w, std::shared_ptr<sf::Texture> t
     body.setOrigin(s/2.0f);
     position.x = 200;
     position.y = 300;
+    accelerator = 3;
+    maxSpeed = 10;
 
 }
 

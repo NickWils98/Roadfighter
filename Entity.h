@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <math.h>
 
 class Entity {
 public:
@@ -23,6 +24,10 @@ public:
         float x = 0;
     };
     coordinats position;
+    coordinats speed;
+    float accelerator;
+    float maxSpeed;
+
 };
 
 

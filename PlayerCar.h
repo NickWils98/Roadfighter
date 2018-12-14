@@ -16,6 +16,9 @@ public:
 
     virtual void render() = 0;
     virtual void update() = 0;
+    virtual std::vector<bool> getInput() = 0;
+
+    void MovePlayer(float deltaTime, std::vector<bool> input);
 };
 
 
