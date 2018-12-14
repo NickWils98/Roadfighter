@@ -8,6 +8,10 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include "World.h"
+#include "PlayerCarSFML.h"
+#include "Car.h"
+#include "PlayerCar.h"
+#include "Entity.h"
 
 class Game {
 public:
@@ -23,6 +27,8 @@ private:
     sf::RenderWindow m_window;
     std::shared_ptr<World> world;
     sf::View view;
+    std::shared_ptr<PlayerCarSFML> player;
+    std::vector<std::shared_ptr<sf::Texture>> textures = {};
 };
 
 

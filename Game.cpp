@@ -17,13 +17,20 @@ Game::Game()
 }
 
 void Game::run() {
+
+    std::clock_t  startTime = std::clock();
+    std::shared_ptr<sf::Texture> tex = std::make_shared<sf::Texture>();
+    tex->loadFromFile("./../pictures/car1.png");
+    textures.push_back(tex);
+    player = std::make_shared<PlayerCarSFML>(m_window, tex);
+    world->add(player);
     //Main loop of the game
-    sf::Clock timer;
     while (m_window.isOpen()) {
 
         //Render
         m_window.clear();
         m_window.setView(view);
+        world->render();
         m_window.display();
 
         //Handle window events

@@ -14,6 +14,9 @@ public:
     Entity();
 
     virtual ~Entity();
+
+    virtual void render() = 0;
+
 };
 
 
