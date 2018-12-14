@@ -3,7 +3,7 @@ project(Roadfighter)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Roadfighter main.cpp Game.cpp Game.h)
+add_executable(Roadfighter main.cpp)
 # Extend the CMake module path to find the FindSFML.cmake
 # file in {project root}/cmake/Modules
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/cmake/Modules/")

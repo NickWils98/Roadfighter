@@ -15,6 +15,7 @@ public:
     virtual ~World();
 
 private:
+    //List of all objects of the world
     std::vector<std::shared_ptr<Entity>> entityList;
 };
 
