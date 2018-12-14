@@ -16,7 +16,13 @@ public:
     virtual ~Entity();
 
     virtual void render() = 0;
+    virtual void update() = 0;
 
+    struct coordinats {
+        float y = 0;
+        float x = 0;
+    };
+    coordinats position;
 };
 
 

@@ -17,6 +17,10 @@ public:
 
     void render() override ;
 
+    void update() override ;
+
+    std::vector<bool> getInput();
+
 private:
     sf::RectangleShape body;
     sf::RenderWindow& window;

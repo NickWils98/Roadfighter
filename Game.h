@@ -21,6 +21,8 @@ public:
 
     void run();
 
+    void init();
+
     void handleEvent();
 
 private:

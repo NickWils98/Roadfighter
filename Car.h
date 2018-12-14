@@ -15,6 +15,7 @@ public:
     virtual ~Car();
 
     virtual void render() = 0;
+    virtual void update() = 0;
 };
 
 

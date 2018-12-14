@@ -19,11 +19,7 @@ Game::Game()
 void Game::run() {
 
     std::clock_t  startTime = std::clock();
-    std::shared_ptr<sf::Texture> tex = std::make_shared<sf::Texture>();
-    tex->loadFromFile("./../pictures/car1.png");
-    textures.push_back(tex);
-    player = std::make_shared<PlayerCarSFML>(m_window, tex);
-    world->add(player);
+    init();
     //Main loop of the game
     while (m_window.isOpen()) {
 
@@ -54,4 +50,12 @@ void Game::handleEvent() {
 
         }
     }
+}
+
+void Game::init() {
+    std::shared_ptr<sf::Texture> tex = std::make_shared<sf::Texture>();
+    tex->loadFromFile("./../pictures/car1.png");
+    textures.push_back(tex);
+    player = std::make_shared<PlayerCarSFML>(m_window, tex);
+    world->add(player);
 }

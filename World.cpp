@@ -30,3 +30,9 @@ void World::render() {
         obj->render();
     }
 }
+
+void World::update() {
+    for(auto obj : entityList){
+        obj->update();
+    }
+}
