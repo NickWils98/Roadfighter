@@ -9,3 +9,7 @@ Entity::Entity() {}
 Entity::~Entity() {
 
 }
+
+const Entity::coordinats &Entity::getPosition() const {
+    return position;
+}

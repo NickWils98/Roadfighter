@@ -27,6 +27,7 @@ public:
 
     void handleEvent();
 
+    void DrawBackground();
 private:
     sf::RenderWindow m_window;
     std::shared_ptr<World> world;
@@ -34,6 +35,7 @@ private:
     std::shared_ptr<PlayerCarSFML> player;
     float deltaTime = 0;
     std::vector<std::shared_ptr<sf::Texture>> textures = {};
+    std::vector<sf::Sprite>backgrounds = {};
 };
 
 

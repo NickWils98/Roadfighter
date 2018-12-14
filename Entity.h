@@ -23,6 +23,9 @@ public:
         float y = 0;
         float x = 0;
     };
+
+    const coordinats &getPosition() const;
+
     coordinats position;
     coordinats speed;
     float accelerator;
